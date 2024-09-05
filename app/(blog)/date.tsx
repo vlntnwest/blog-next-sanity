@@ -1,9 +1,10 @@
-import { format } from "date-fns";
-
 export default function DateComponent({ dateString }: { dateString: string }) {
-  return (
-    <time dateTime={dateString}>
-      {format(new Date(dateString), "LLLL	d, yyyy")}
-    </time>
-  );
+  const date = new Date(dateString);
+  const formattedDate = date.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return <time dateTime={dateString}>{formattedDate}</time>;
 }

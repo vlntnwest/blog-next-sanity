@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export default function DateComponent({ dateString }: { dateString: string }) {
@@ -5,7 +7,7 @@ export default function DateComponent({ dateString }: { dateString: string }) {
   const date = new Date(dateString);
 
   useEffect(() => {
-    setUserLanguage(navigator.language || "en-US");
+    setUserLanguage(navigator.language || "fr-FR");
   }, []);
 
   const formattedDate = userLanguage

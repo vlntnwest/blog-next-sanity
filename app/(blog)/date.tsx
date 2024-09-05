@@ -1,12 +1,20 @@
+import { useState, useEffect } from "react";
+
 export default function DateComponent({ dateString }: { dateString: string }) {
+  const [userLanguage, setUserLanguage] = useState<string | null>(null);
   const date = new Date(dateString);
 
-  const userLanguage = navigator.language || "en-US";
-  const formattedDate = date.toLocaleDateString(userLanguage, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  useEffect(() => {
+    setUserLanguage(navigator.language || "en-US");
+  }, []);
+
+  const formattedDate = userLanguage
+    ? date.toLocaleDateString(userLanguage, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : null;
 
   return <time dateTime={dateString}>{formattedDate}</time>;
 }

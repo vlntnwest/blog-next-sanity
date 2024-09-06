@@ -54,6 +54,9 @@ export default defineType({
         {
           type: "code",
         },
+        {
+          type: "youtube",
+        },
       ],
     }),
     defineField({

@@ -6,13 +6,15 @@ import {
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
 import { highlightCode } from "./prismUtils";
+import getYouTubeId from "get-youtube-id";
+import YouTubeBlock from "./YouTubeBlock";
 
 const CodeBlock = ({
   value,
 }: {
   value: { code: string; language?: string };
 }) => {
-  const language = value.language || "javascript"; // Définir un langage par défaut
+  const language = value.language || "javascript";
   const highlightedCode = highlightCode(value.code, language);
 
   return (
@@ -22,6 +24,16 @@ const CodeBlock = ({
         dangerouslySetInnerHTML={{ __html: highlightedCode }}
       />
     </pre>
+  );
+};
+
+const YouTube = ({ value }: { value: { url: string | null } }) => {
+  const videoId = value.url ? getYouTubeId(value.url) : "";
+
+  return (
+    <div className="my-4">
+      {videoId ? <YouTubeBlock videoId={videoId} /> : null}
+    </div>
   );
 };
 
@@ -65,6 +77,7 @@ export default function CustomPortableText({
         </div>
       ),
       code: CodeBlock,
+      youtube: YouTube,
     },
     marks: {
       link: ({ children, value }) => (

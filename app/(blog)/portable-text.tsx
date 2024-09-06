@@ -5,7 +5,7 @@ import {
 } from "next-sanity";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
-import { highlightCode } from "./prismUtils.ts";
+import { highlightCode } from "./prismUtils";
 
 const CodeBlock = ({
   value,

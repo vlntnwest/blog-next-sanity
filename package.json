@@ -40,6 +40,7 @@
     "typescript": "5.5.4"
   },
   "devDependencies": {
+    "@types/prismjs": "^1.26.4",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5"
   }

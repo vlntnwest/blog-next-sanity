@@ -57,11 +57,10 @@ export default function CustomPortableText({
       image: ({ value }) => (
         <div className="my-4">
           <Image
-            src={urlForImage(value).url()}
-            alt={value.alt || "Image"}
+            src={urlForImage(value)?.url() || ""}
+            alt={value?.alt || "Image"}
             width={800}
             height={600}
-            className="rounded-lg"
           />
         </div>
       ),

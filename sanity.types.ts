@@ -68,6 +68,11 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Twitter = {
+  _type: "twitter";
+  url?: string;
+};
+
 export type Youtube = {
   _type: "youtube";
   url?: string;
@@ -113,7 +118,9 @@ export type Post = {
     _key: string;
   } & Code | {
     _key: string;
-  } & Youtube>;
+  } & Youtube | {
+    _key: string;
+  } & Twitter>;
   excerpt?: string;
   coverImage?: {
     asset?: {
@@ -407,7 +414,7 @@ export type Code = {
   highlightedLines?: Array<number>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Youtube | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | Code;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Twitter | Youtube | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: settingsQuery
@@ -475,6 +482,8 @@ export type HeroQueryResult = {
   content: Array<{
     _key: string;
   } & Code | {
+    _key: string;
+  } & Twitter | {
     _key: string;
   } & Youtube | {
     children?: Array<{
@@ -582,6 +591,8 @@ export type PostQueryResult = {
   content: Array<{
     _key: string;
   } & Code | {
+    _key: string;
+  } & Twitter | {
     _key: string;
   } & Youtube | {
     children?: Array<{

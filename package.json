@@ -36,6 +36,7 @@
     "react-dom": "^18.3.1",
     "react-player": "^2.16.0",
     "react-tweet": "^3.2.1",
+    "react-twitter-embed": "^4.0.4",
     "react-youtube": "^10.1.0",
     "sanity": "^3.55.0",
     "sanity-plugin-asset-source-unsplash": "^3.0.1",

@@ -22,6 +22,7 @@ import post from "@/sanity/schemas/documents/post";
 import settings from "@/sanity/schemas/singletons/settings";
 import { resolveHref } from "@/sanity/lib/utils";
 import youtube from "./sanity/schemas/documents/youtube";
+import twitter from "./sanity/schemas/documents/twitter";
 
 const homeLocation = {
   title: "Home",
@@ -40,6 +41,7 @@ export default defineConfig({
       post,
       author,
       youtube,
+      twitter,
     ],
   },
   plugins: [

@@ -8,6 +8,7 @@ import { urlForImage } from "@/sanity/lib/utils";
 import { highlightCode } from "./prismUtils";
 import getYouTubeId from "get-youtube-id";
 import YouTubeBlock from "./YouTubeBlock";
+import TwitterBlock from "./TwitterBlock";
 
 const CodeBlock = ({
   value,
@@ -33,6 +34,16 @@ const YouTube = ({ value }: { value: { url: string | null } }) => {
   return (
     <div className="my-4">
       {videoId ? <YouTubeBlock videoId={videoId} /> : null}
+    </div>
+  );
+};
+
+const Twitter = ({ value }: { value: { url: string | null } }) => {
+  const tweetUrl = value.url;
+
+  return (
+    <div className="my-4">
+      {tweetUrl ? <TwitterBlock tweetUrl={tweetUrl} /> : null}
     </div>
   );
 };
@@ -78,6 +89,7 @@ export default function CustomPortableText({
       ),
       code: CodeBlock,
       youtube: YouTube,
+      twitter: Twitter,
     },
     marks: {
       link: ({ children, value }) => (

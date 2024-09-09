@@ -1,6 +1,6 @@
 import React from "react";
-import { TwitterTweetEmbed } from "react-twitter-embed";
-import { PreviewProps, SchemaTypeDefinition, defineType } from "sanity";
+import { Tweet } from "react-tweet";
+import { PreviewProps, defineType } from "sanity";
 
 const getTweetId = (url?: string) => {
   if (!url) {
@@ -18,12 +18,7 @@ export function TwitterPreview(props: PreviewProps) {
   if (!id) {
     return null;
   }
-  return (
-    <TwitterTweetEmbed
-      tweetId={id}
-      options={{ width: "100%", height: "100%" }}
-    />
-  );
+  return <Tweet id={id} />;
 }
 
 const twitter = defineType({
